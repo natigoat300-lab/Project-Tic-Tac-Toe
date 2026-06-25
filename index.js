@@ -32,6 +32,7 @@ function cell() {
   return {placePiece, getValue}
 }
 
+
 function gameControll(
   playerOneName = "Player One",
   playerTwoName = "Player Two"
@@ -60,10 +61,15 @@ function gameControll(
   };
 
   const playRound = (row, column) => {
-    board.specific(row, column, getActivePlayer().token);
-
-    switchPlayerTurn();
-    printNewRound();
+    if(board.getBoard()[row][column].getValue() == 0) {
+      
+      board.specific(row, column, getActivePlayer().token);
+      switchPlayerTurn();
+      printNewRound();
+    }
+  
+   
+    
   }
   printNewRound();
 
